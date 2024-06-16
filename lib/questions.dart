@@ -1,5 +1,9 @@
 import 'package:flutter/material.dart';
+import'package:google_fonts/google_fonts.dart';
 // import 'package:flutter/rendering.dart';
+
+import 'package:quizzzie/option_button.dart';
+import 'package:quizzzie/data/quesData.dart';
 
 class QuestionsScreen extends StatefulWidget {
   const QuestionsScreen({super.key});
@@ -11,32 +15,40 @@ class QuestionsScreen extends StatefulWidget {
 }
 
 class _QuestionsScreenState extends State<QuestionsScreen> {
+  var currentQIndex=0;
+
+  void answerQuestion(){
+    setState(() {
+      currentQIndex++;
+    });
+  }
 
   @override
   Widget build(context) {
+    final currentQuestion= questions[0];
+
     return SizedBox(
       width:double.infinity,
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          const Text('what Questions'),
+           Text(
+            currentQuestion.text,
+            style: GoogleFonts.poppins(
+              color:const Color.fromARGB(255, 90, 124, 234),
+              fontSize:25,
+              fontWeight:FontWeight.bold,
+            ),
+          textAlign: TextAlign.center,
+          ),
           const SizedBox(height: 30),
-          ElevatedButton(
-            onPressed: () {},
-            child: const Text('option 1'),
-          ),
-          ElevatedButton(
-            onPressed: () {},
-            child: const Text('option 1'),
-          ),
-          ElevatedButton(
-            onPressed: () {},
-            child: const Text('option 1'),
-          ),
-          ElevatedButton(
-            onPressed: () {},
-            child: const Text('option 1'),
-          ),
+          ...currentQuestion.getShuffled().map((option){
+            return OptionButton(answerText: option ,tap: answerQuestion,
+            );
+          }),
+          
+          
+          
         ],
       ),
     );

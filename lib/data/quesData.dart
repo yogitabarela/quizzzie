@@ -1,56 +1,79 @@
-
 import 'package:quizzzie/models/questionnaire.dart';
 
-const Questions = [
+const questions = [
   QuestionList(
-    'What are the main building blocks of Flutter UIs?',
+    'Which one of the following is not a prime number?',
     [
-      'Widgets',
-      'Components',
-      'Blocks',
-      'Functions',
+      '91',
+      '61',
+      '71',
+      '31',
     ],
   ),
-  QuestionList('How are Flutter UIs built?', [
-    'By combining widgets in code',
-    'By combining widgets in a visual editor',
-    'By defining widgets in config files',
-    'By using XCode for iOS and Android Studio for Android',
+  QuestionList('1397 x 1397 = ?', [
+    '1951609',
+    '1981709',
+    '18362619',
+    '2031719',
   ]),
   QuestionList(
-    'What\'s the purpose of a StatefulWidget?',
+    'What least number must be added to 1056, so that the sum is completely divisible by 23 ?',
     [
-      'Update UI as data changes',
-      'Update data as UI changes',
-      'Ignore data changes',
-      'Render UI that does not depend on data',
+      '2',
+      '3',
+      '18',
+      '21',
     ],
   ),
   QuestionList(
-    'Which widget should you try to use more often: StatelessWidget or StatefulWidget?',
+    'He tames animals because he ......',
     [
-      'StatelessWidget',
-      'StatefulWidget',
-      'Both are equally good',
-      'None of the above',
+      'is fond of them',
+      'hates them',
+      'is afraid of them',
+      'want to set them free',
+      'seldom loves them',
     ],
   ),
   QuestionList(
-    'What happens if you change data in a StatelessWidget?',
+    'Despite his best efforts to conceal his anger ......',
     [
-      'The UI is not updated',
-      'The UI is updated',
-      'The closest StatefulWidget is updated',
-      'Any nested StatefulWidgets are updated',
+      'people came to know that he was annoyed',
+      'he failed to give us an impression of his agony',
+      'he succeeded in camouflaging his emotions',
+      'he could succeed in doing it easily',
     ],
   ),
   QuestionList(
-    'How should you update data inside of StatefulWidgets?',
+    'Even if it rains I shall come means ......',
     [
-      'By calling setState()',
-      'By calling updateData()',
-      'By calling updateUI()',
-      'By calling updateState()',
+      'I will certainly come whether it rains or not',
+      'if I come it will not rain',
+      'if it rains I shall not come',
+      'whenever there is rain I shall come',
+    ],
+  ),
+  QuestionList(
+    ' I felt somewhat more relaxed ......',
+    [
+      'and tension-free as compared to earlier',
+      'and tense as compared to earlier',
+      'as there was already no tension at all',
+      'because the worry had already captured by mind',
+    ],
+  ),
+  QuestionList(
+    'It has been established that'
+    'P :	Einstein was'
+    'Q :	although a great scientist'
+    'R :	weak in arithmetic'
+    'S :	right from his school days'
+    'The Proper sequence should be:',
+    [
+      'QPRS',
+      'SRPQ',
+      'QPSR',
+      'RQPS',
     ],
   ),
 ];
