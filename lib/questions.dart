@@ -6,7 +6,9 @@ import 'package:quizzzie/option_button.dart';
 import 'package:quizzzie/data/quesData.dart';
 
 class QuestionsScreen extends StatefulWidget {
-  const QuestionsScreen({super.key});
+  const QuestionsScreen({super.key,  required this.onSelectOption,});
+
+  final void Function(String option) onSelectOption;
 
   @override
   State<QuestionsScreen> createState() {
@@ -17,7 +19,8 @@ class QuestionsScreen extends StatefulWidget {
 class _QuestionsScreenState extends State<QuestionsScreen> {
   var currentQIndex=0;
 
-  void answerQuestion(){
+  void answerQuestion(String chosenOption){
+    widget.onSelectOption; 
     setState(() {
       currentQIndex++;
     });
@@ -43,7 +46,10 @@ class _QuestionsScreenState extends State<QuestionsScreen> {
           ),
           const SizedBox(height: 30),
           ...currentQuestion.getShuffled().map((option){
-            return OptionButton(answerText: option ,tap: answerQuestion,
+            return OptionButton(answerText: option ,
+            onTap: (){
+              answerQuestion(option);
+            },
             );
           }),
           
