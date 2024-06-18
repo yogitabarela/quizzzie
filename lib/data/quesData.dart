@@ -63,7 +63,7 @@ const questions = [
     ],
   ),
   QuestionList(
-    'It has been established that'
+    'It has been established that' 
     'P :	Einstein was'
     'Q :	although a great scientist'
     'R :	weak in arithmetic'
