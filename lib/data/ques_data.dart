@@ -63,12 +63,12 @@ const questions = [
     ],
   ),
   QuestionList(
-    'It has been established that' 
-    'P :	Einstein was'
-    'Q :	although a great scientist'
-    'R :	weak in arithmetic'
-    'S :	right from his school days'
-    'The Proper sequence should be:',
+    '''It has been established that 
+    P :	Einstein was
+    Q :	although a great scientist
+    R :	weak in arithmetic
+    S :	right from his school days
+    The Proper sequence should be:''',
     [
       'QPRS',
       'SRPQ',

@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
-
 import 'package:quizzzie/start_screen.dart';
 import 'package:quizzzie/questions.dart';
-import 'package:quizzzie/data/quesData.dart';
+import 'package:quizzzie/data/ques_data.dart';
 import 'package:quizzzie/result_screen.dart';
 
 class Quiz extends StatefulWidget {
@@ -16,58 +15,40 @@ class Quiz extends StatefulWidget {
 
 class _QuizState extends State<Quiz> {
   List<String> chosenOptions = [];
-  var activeScreen = 'start-screen'; // second // another approach
-
-  // Widget? activeScreen ;
+  var activeScreen = 'start-screen';
 
   void switchScreen() {
     setState(() {
       activeScreen = 'questions-screen';
     });
-  } // second // another approach
+  }
 
   void chooseOption(String option) {
-    chosenOptions.add(option);
+    setState(() {
+      chosenOptions.add(option);
 
-    if (chosenOptions.length == questions.length) {
-      setState(() {
+      if (chosenOptions.length == questions.length) {
         activeScreen = 'results-screen';
-      });
-    }
+      }
+    });
   }
 
   void restartQuiz() {
     setState(() {
-      chosenOptions=[];
+      chosenOptions = [];
       activeScreen = 'questions-screen';
     });
   }
 
   @override
-// void initState() {
-//   activeScreen = StartScreen(switchScreen);
-//   super.initState();
-// }//one approach
-
-// void switchScreen() {
-//     setState(() {
-//       activeScreen = const QuestionsScreen();
-//     });
-//   }//one approach
-
-  Widget build(context) {
-    // Widget screenWidget =activeScreen=='start-screen'
-    //       ? StartScreen(switchScreen)
-    //       : const  QuestionsScreen();//another approach
-    Widget screenWidget = StartScreen(switchScreen); // other approach
+  Widget build(BuildContext context) {
+    Widget screenWidget = StartScreen(switchScreen);
 
     if (activeScreen == 'questions-screen') {
       screenWidget = QuestionsScreen(
         onSelectOption: chooseOption,
       );
-    } // other
-
-    if (activeScreen == 'results-screen') {
+    } else if (activeScreen == 'results-screen') {
       screenWidget = ResultsScreen(
         chosenOpt: chosenOptions,
         onRestart: restartQuiz,
@@ -87,11 +68,7 @@ class _QuizState extends State<Quiz> {
               end: Alignment.bottomRight,
             ),
           ),
-          // child: activeScreen, one approach
-          // child: activeScreen=='start-screen'
-          // ? StartScreen(switchScreen)
-          // : const  QuestionsScreen(), second approach
-          child: screenWidget, // another approach
+          child: screenWidget,
         ),
       ),
     );

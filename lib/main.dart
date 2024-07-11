@@ -7,4 +7,3 @@ import 'package:quizzzie/quiz.dart';
 void main() {
   runApp( const Quiz());
   }
-
